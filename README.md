@@ -77,7 +77,10 @@ Masih perlu dicoba di HP sungguhan: rasa scroll di bagian Kopi, usapan di terpal
 app/            halaman, layout, gaya global
 components/     komponen beserta file .module.css masing-masing
 lib/            data kopi, navigasi anchor, perilaku panel, deteksi kurangi gerakan
+public/images/  foto produk (still life di hero, mockup kemasan di bagian Cerita)
 ```
+
+Gambar di `public/` dipanggil tanpa kata `public`, misalnya `/images/lereng-kemasan.avif`. Komponen `next/image` otomatis menyajikan ukuran dan format yang sesuai layar pengunjung.
 
 Data kopi ada di `lib/beans.ts`. Menambah atau mengubah kopi cukup dilakukan di file itu. Bagian Kopi akan menghitung ulang panjang geserannya sendiri.
 

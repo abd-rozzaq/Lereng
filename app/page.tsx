@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import BeanRail from "@/components/BeanRail";
 import Journey from "@/components/Journey";
@@ -22,18 +23,31 @@ export default function HomePage() {
 
       <section id="cerita" aria-labelledby="judul-cerita">
         <div className={styles.band}>
-          <div className="container">
-            <h2 id="judul-cerita" className={styles.sectionTitleLight}>
-              Cerita
-            </h2>
-            <Reveal>
-              <p className={styles.bandTitle}>Dari ceri merah ke cangkirmu butuh sekitar enam puluh hari.</p>
-            </Reveal>
-            <p className={styles.bandText}>
-              Dampit ada di kaki Semeru, sekitar empat puluh lima menit dari Kota Malang. Tanahnya vulkanik, kebunnya
-              kecil, dan hampir semua kopinya robusta. Tiga minggu di terpal, sebulan di karung goni, lalu satu pagi di
-              mesin sangrai. Kami tidak mempercepat satu pun tahapnya.
-            </p>
+          <div className={`container ${styles.bandGrid}`}>
+            <div>
+              <h2 id="judul-cerita" className={styles.sectionTitleLight}>
+                Cerita
+              </h2>
+              <Reveal>
+                <p className={styles.bandTitle}>Dari ceri merah ke cangkirmu butuh sekitar enam puluh hari.</p>
+              </Reveal>
+              <p className={styles.bandText}>
+                Dampit ada di kaki Semeru, sekitar empat puluh lima menit dari Kota Malang. Tanahnya vulkanik, kebunnya
+                kecil, dan hampir semua kopinya robusta. Tiga minggu di terpal, sebulan di karung goni, lalu satu pagi
+                di mesin sangrai. Kami tidak mempercepat satu pun tahapnya.
+              </p>
+            </div>
+
+            {/* Mockup kemasan berlatar transparan, "berdiri" langsung di atas blok coklat */}
+            <div className={styles.pouch}>
+              <Image
+                src="/images/lereng-kemasan.avif"
+                alt="Kemasan kopi Lereng Robusta Dampit dengan ilustrasi lereng gunung dan ceri kopi"
+                width={1024}
+                height={1536}
+                sizes="(max-width: 860px) 70vw, 30vw"
+              />
+            </div>
           </div>
         </div>
 

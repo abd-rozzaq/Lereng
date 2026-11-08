@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type MouseEvent } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useLenis } from "lenis/react";
 import { scrollToSection } from "@/lib/nav";
@@ -57,6 +58,19 @@ export default function Hero() {
               Cara kami mengolahnya
             </a>
           </div>
+        </div>
+
+        {/* Foto produk: bagian pertama yang terlihat setelah lembaran menutupi terpal */}
+        <div className={`container ${styles.photoWrap}`}>
+          <figure className={styles.photo}>
+            <Image
+              src="/images/lereng-still-life.avif"
+              alt="Kemasan kopi Lereng di meja kayu bersama secangkir kopi, biji kopi sangrai, dan bubuk kopi"
+              width={1536}
+              height={1024}
+              sizes="(max-width: 1280px) 92vw, 1280px"
+            />
+          </figure>
         </div>
       </div>
     </section>
