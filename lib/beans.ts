@@ -22,7 +22,7 @@ export const BEANS: Bean[] = [
     altitude: 820,
     process: "Natural",
     notes: "Cokelat hitam, nangka matang, sedikit cengkih",
-    price: 92000,
+    price: 95000,
     weight: 200,
     thisWeek: true,
   },
