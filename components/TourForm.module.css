@@ -1,0 +1,98 @@
+.form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid transparent;
+  border-radius: 6px;
+  background: var(--kertas);
+  color: var(--basalt);
+  font: inherit;
+  font-size: max(16px, 1rem); /* 16px mencegah iPhone otomatis zoom saat input diketuk */
+}
+
+.field input:focus-visible {
+  outline: 3px solid var(--kertas);
+  outline-offset: 2px;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--ceri);
+  box-shadow: 0 0 0 2px var(--ceri);
+}
+
+.error {
+  display: inline-block;
+  justify-self: start;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--kertas);
+  color: var(--ceri-deep);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.submit,
+.again {
+  justify-self: start;
+  min-height: 50px;
+  padding: 0.6rem 1.5rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ceri);
+  color: var(--kertas);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit:hover,
+.again:hover {
+  background: var(--ceri-deep);
+}
+
+.submit:focus-visible,
+.again:focus-visible {
+  outline-color: var(--kertas);
+}
+
+.done {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.doneTitle {
+  font-size: var(--step-2);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.1;
+}
+
+.again {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 420px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

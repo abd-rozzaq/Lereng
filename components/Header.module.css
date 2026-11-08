@@ -1,0 +1,132 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--abu) 97%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--abu-2);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--header-h);
+}
+
+.logo {
+  font-family: var(--font-stencil);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--terpal);
+}
+
+.nav ul {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.85rem;
+  text-decoration: none;
+  font-weight: 560;
+  color: color-mix(in srgb, var(--basalt) 75%, transparent);
+  transition: color 0.2s;
+}
+
+.link:hover,
+.link[aria-current="page"] {
+  color: var(--basalt);
+}
+
+/* Penanda halaman aktif: meluncur ke menu yang dipilih */
+.marker {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.2rem;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--ceri);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cartButton,
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid var(--basalt);
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cartButton:hover,
+.menuButton:hover {
+  background: var(--basalt);
+  color: var(--abu);
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding-inline: 0.35rem;
+  border-radius: 999px;
+  background: var(--ceri);
+  color: var(--kertas);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.menuButton {
+  display: none;
+}
+
+.menuIcon {
+  display: grid;
+  gap: 4px;
+  width: 16px;
+}
+
+.menuIcon span {
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .cartButton {
+    padding-inline: 0.75rem;
+  }
+}

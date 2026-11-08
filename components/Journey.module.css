@@ -1,0 +1,157 @@
+.journey {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.8fr) 1.2fr;
+  gap: 2rem 5rem;
+}
+
+/* Biji besar yang menempel di layar dan berubah warna sesuai tahap */
+.stage {
+  position: relative;
+}
+
+.stageInner {
+  position: sticky;
+  top: calc(var(--header-h) + 12vh);
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  padding-block: 1rem;
+}
+
+.bean {
+  width: min(100%, 17rem);
+  height: auto;
+  overflow: visible;
+}
+
+.day {
+  font-size: var(--step-1);
+  font-weight: 700;
+  font-stretch: 112%;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.track::before,
+.progress {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 2px;
+}
+
+.track::before {
+  background: var(--abu-2);
+}
+
+.progress {
+  background: var(--ceri);
+  transform-origin: top;
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  min-height: 62svh;
+  padding-block: 2rem;
+  opacity: 0.45;
+  transition: opacity 0.4s;
+}
+
+.step[data-active] {
+  opacity: 1;
+}
+
+.step:last-child {
+  min-height: 40svh;
+}
+
+.number {
+  font-family: var(--font-stencil);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 0.9;
+  color: var(--terpal);
+}
+
+.stepTitle {
+  font-size: var(--step-3);
+  font-stretch: 112%;
+}
+
+.stepDay {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  color: var(--ceri);
+}
+
+.stepText {
+  margin-top: 0.75rem;
+  max-width: 44ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .journey {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Di HP, biji jadi pita kecil yang menempel di atas, teks tahap mengalir di bawahnya */
+  .stage {
+    position: sticky;
+    top: var(--header-h);
+    transition: top 0.35s var(--ease-out);
+    z-index: 5;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    background: var(--abu);
+    border-bottom: 1px solid var(--abu-2);
+  }
+
+  :global(html[data-header-hidden]) .stage {
+    top: 0;
+  }
+
+  .stageInner {
+    position: static;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    padding-block: 0.6rem;
+  }
+
+  .bean {
+    width: 3.5rem;
+  }
+
+  .step {
+    min-height: 55svh;
+    grid-template-columns: 2.25rem 1fr;
+  }
+
+  .number {
+    font-size: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step {
+    transition: none;
+  }
+}

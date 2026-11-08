@@ -1,0 +1,142 @@
+:root {
+  /* Warna dari dunia jemuran kopi Dampit */
+  --terpal: #2347a0;      /* terpal biru tempat ceri dijemur */
+  --terpal-deep: #17306f;
+  --ceri: #c8102e;        /* ceri kopi yang matang */
+  --ceri-deep: #9c0c24;
+  --abu: #e3e4e0;         /* abu vulkanik Semeru */
+  --abu-2: #d2d4ce;
+  --basalt: #1f2326;
+  --kertas: #f4f5f2;      /* teks terang di atas biru dan merah */
+  --kulit: #d9c58f;       /* kulit tanduk biji kering */
+
+  --font-sans: "Archivo Variable", system-ui, sans-serif;
+  --font-stencil: "Big Shoulders Stencil Variable", "Archivo Variable", sans-serif;
+
+  /* Skala tipe (rasio ~1.333) */
+  --step--1: clamp(0.84rem, 0.82rem + 0.1vw, 0.9rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.1rem);
+  --step-1: clamp(1.25rem, 1.18rem + 0.35vw, 1.45rem);
+  --step-2: clamp(1.6rem, 1.45rem + 0.75vw, 2rem);
+  --step-3: clamp(2.1rem, 1.8rem + 1.5vw, 3rem);
+  --step-4: clamp(2.6rem, 2rem + 3vw, 4.6rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max: 78rem;
+  --header-h: 4.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--abu);
+  color: var(--basalt);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-stretch: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ceri);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--terpal);
+  color: var(--kertas);
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--basalt);
+  color: var(--kertas);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.prose {
+  max-width: 62ch;
+}
+
+.prose p + p {
+  margin-top: 1em;
+}

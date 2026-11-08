@@ -1,0 +1,132 @@
+.intro {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem 4rem;
+  align-items: end;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.headline {
+  font-size: var(--step-4);
+  font-stretch: 115%;
+  max-width: 16ch;
+}
+
+.introSide {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 40ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.primary {
+  background: var(--ceri);
+  color: var(--kertas);
+}
+
+.primary:hover {
+  background: var(--ceri-deep);
+}
+
+.secondary {
+  border: 1.5px solid var(--basalt);
+}
+
+.secondary:hover {
+  background: var(--basalt);
+  color: var(--abu);
+}
+
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+
+.week {
+  padding-top: clamp(3rem, 7vw, 5.5rem);
+}
+
+.weekHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weekHead h2 {
+  font-size: var(--step-3);
+}
+
+.textLink {
+  font-weight: 600;
+  text-decoration-color: var(--ceri);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.band {
+  margin-top: clamp(4rem, 9vw, 7rem);
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+  background: var(--terpal);
+  color: var(--kertas);
+}
+
+.bandTitle {
+  font-size: var(--step-4);
+  font-stretch: 118%;
+  max-width: 18ch;
+}
+
+.bandText {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+.bandLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  margin-top: 2rem;
+  padding: 0.6rem 1.25rem;
+  border: 1.5px solid var(--kertas);
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.bandLink:hover {
+  background: var(--kertas);
+  color: var(--terpal);
+}
+
+.bandLink:focus-visible {
+  outline-color: var(--kertas);
+}
+
+@media (max-width: 860px) {
+  .intro {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}

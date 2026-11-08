@@ -1,0 +1,15 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 45; /* di bawah header, supaya penanda menu tetap terlihat bergeser */
+  background: var(--terpal);
+  transform-origin: top;
+  pointer-events: none;
+}
+
+/* Kalau pengunjung memilih kurangi gerakan, tirai tidak ditampilkan sama sekali */
+@media (prefers-reduced-motion: reduce) {
+  .curtain {
+    display: none;
+  }
+}
