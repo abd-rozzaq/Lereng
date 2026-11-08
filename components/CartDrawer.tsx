@@ -44,6 +44,7 @@ export default function CartDrawer() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="judul-keranjang"
+          data-lenis-prevent
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
           exit={{ x: "100%" }}

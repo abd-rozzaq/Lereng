@@ -3,6 +3,7 @@
 import { MotionConfig } from "motion/react";
 import type { ReactNode } from "react";
 import { CartProvider } from "./CartContext";
+import SmoothScroll from "./SmoothScroll";
 
 /**
  * reducedMotion="user": kalau pengunjung menyalakan "kurangi gerakan" di HP/komputernya,
@@ -11,7 +12,9 @@ import { CartProvider } from "./CartContext";
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <MotionConfig reducedMotion="user">
-      <CartProvider>{children}</CartProvider>
+      <SmoothScroll>
+        <CartProvider>{children}</CartProvider>
+      </SmoothScroll>
     </MotionConfig>
   );
 }

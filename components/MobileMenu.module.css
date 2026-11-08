@@ -18,9 +18,10 @@
 }
 
 .logo {
-  font-family: var(--font-stencil);
-  font-weight: 800;
-  font-size: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
@@ -48,15 +49,15 @@
 .link {
   display: block;
   padding: 0.35rem 0;
-  font-size: clamp(2.75rem, 13vw, 4.5rem);
-  font-weight: 800;
-  font-stretch: 118%;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 10vw, 3.5rem);
+  font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   text-decoration: none;
 }
 
-.link[aria-current="page"] {
+.link[aria-current="location"] {
   text-decoration: underline;
   text-decoration-color: var(--ceri);
   text-decoration-thickness: 0.08em;

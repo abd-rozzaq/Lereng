@@ -85,9 +85,9 @@ export default function Journey() {
 
   return (
     <section ref={sectionRef} className={styles.journey} aria-labelledby="judul-perjalanan">
-      <h2 id="judul-perjalanan" className="visually-hidden">
+      <h3 id="judul-perjalanan" className="visually-hidden">
         Enam tahap dari ceri sampai sangrai
-      </h2>
+      </h3>
 
       <div className={styles.stage} aria-hidden="true">
         <div className={styles.stageInner}>
@@ -147,7 +147,7 @@ export default function Journey() {
             >
               <span className={styles.number}>{index + 1}</span>
               <div>
-                <h3 className={styles.stepTitle}>{item.title}</h3>
+                <h4 className={styles.stepTitle}>{item.title}</h4>
                 <p className={styles.stepDay}>{item.day}</p>
                 <p className={styles.stepText}>{item.text}</p>
               </div>

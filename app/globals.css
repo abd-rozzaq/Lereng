@@ -10,8 +10,9 @@
   --kertas: #f4f5f2;      /* teks terang di atas biru dan merah */
   --kulit: #d9c58f;       /* kulit tanduk biji kering */
 
-  --font-sans: "Archivo Variable", system-ui, sans-serif;
-  --font-stencil: "Big Shoulders Stencil Variable", "Archivo Variable", sans-serif;
+  /* Dua font dari Google Fonts, disimpan di proyek lewat Fontsource */
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;   /* teks dan antarmuka */
+  --font-display: "Unbounded Variable", "Plus Jakarta Sans Variable", sans-serif; /* merek dan judul besar */
 
   /* Skala tipe (rasio ~1.333) */
   --step--1: clamp(0.84rem, 0.82rem + 0.1vw, 0.9rem);
@@ -39,12 +40,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
 body {
   margin: 0;
   background: var(--abu);
@@ -52,7 +47,6 @@ body {
   font-family: var(--font-sans);
   font-size: var(--step-0);
   line-height: 1.55;
-  font-stretch: 100%;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -61,11 +55,17 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 800;
-  font-stretch: 112%;
-  line-height: 1.02;
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   text-wrap: balance;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
 p {

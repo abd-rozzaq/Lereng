@@ -1,17 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import "@fontsource-variable/archivo/wdth.css";
-import "@fontsource-variable/big-shoulders-stencil/wght.css";
+import "@fontsource-variable/plus-jakarta-sans/wght.css";
+import "@fontsource-variable/unbounded/wght.css";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Lereng | Robusta Dampit",
-    template: "%s | Lereng",
-  },
+  title: "Lereng | Robusta Dampit",
   description:
     "Lereng menyangrai robusta dari kebun-kebun kecil di Dampit, lereng Semeru. Disangrai tiap Selasa di Malang. (Merek fiktif untuk portofolio.)",
 };

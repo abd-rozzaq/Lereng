@@ -2,39 +2,60 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useLenis } from "lenis/react";
 import { useCart } from "./CartContext";
 import MobileMenu from "./MobileMenu";
 import CartDrawer from "./CartDrawer";
-import { NAV, isActive } from "@/lib/nav";
+import { NAV, scrollToSection } from "@/lib/nav";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const pathname = usePathname();
+  const onHome = pathname === "/";
   const cart = useCart();
+  const lenis = useLenis();
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [activeId, setActiveId] = useState("beranda");
   const lastY = useRef(0);
   const { scrollY } = useScroll();
 
-  // Di HP, header bersembunyi saat scroll ke bawah dan muncul lagi saat scroll ke atas,
-  // supaya layar kecil tidak tertutup header terus-menerus.
+  // Header bersembunyi saat scroll ke bawah dan muncul lagi saat scroll ke atas,
+  // supaya layar HP tidak tertutup header terus-menerus.
   useMotionValueEvent(scrollY, "change", (y) => {
     const goingDown = y > lastY.current;
     lastY.current = y;
     setHidden(goingDown && y > 160);
   });
 
-  useEffect(() => setMenuOpen(false), [pathname]);
+  // Penanda menu mengikuti bagian yang sedang dibaca (scrollspy)
+  useEffect(() => {
+    if (!onHome) return;
+    const sections = NAV.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) if (entry.isIntersecting) setActiveId(entry.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [onHome]);
 
   const showHeader = !hidden || menuOpen || cart.isOpen;
 
-  // Elemen lain yang menempel di atas layar (pita biji di halaman Cerita) membaca tanda ini
-  // supaya tidak tertutup header.
+  // Elemen lain yang menempel di atas layar membaca tanda ini supaya tidak tertutup header
   useEffect(() => {
     document.documentElement.toggleAttribute("data-header-hidden", !showHeader);
   }, [showHeader]);
+
+  function goTo(event: MouseEvent<HTMLAnchorElement>, id: string) {
+    if (!onHome) return; // di halaman lain (404), biarkan tautan membuka beranda
+    event.preventDefault();
+    scrollToSection(id, lenis);
+  }
 
   return (
     <>
@@ -44,17 +65,27 @@ export default function Header() {
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className={`container ${styles.inner}`}>
-          <Link href="/" className={styles.logo} aria-label="Lereng, ke beranda">
+          <Link
+            href="/"
+            className={styles.logo}
+            aria-label="Lereng, ke bagian atas"
+            onClick={(event) => goTo(event, "beranda")}
+          >
             Lereng
           </Link>
 
           <nav aria-label="Navigasi utama" className={styles.nav}>
             <ul>
               {NAV.map((item) => {
-                const active = isActive(pathname, item.href);
+                const active = onHome && activeId === item.id;
                 return (
-                  <li key={item.href}>
-                    <Link href={item.href} aria-current={active ? "page" : undefined} className={styles.link}>
+                  <li key={item.id}>
+                    <a
+                      href={onHome ? `#${item.id}` : `/#${item.id}`}
+                      onClick={(event) => goTo(event, item.id)}
+                      aria-current={active ? "location" : undefined}
+                      className={styles.link}
+                    >
                       {item.label}
                       {active && (
                         <motion.span
@@ -63,7 +94,7 @@ export default function Header() {
                           transition={{ type: "spring", stiffness: 420, damping: 36 }}
                         />
                       )}
-                    </Link>
+                    </a>
                   </li>
                 );
               })}
@@ -108,7 +139,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} pathname={pathname} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} activeId={onHome ? activeId : ""} onHome={onHome} />
       <CartDrawer />
     </>
   );

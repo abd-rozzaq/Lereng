@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
+import { useLenis } from "lenis/react";
 
 /**
  * Untuk panel yang menutupi layar (menu HP, keranjang):
- * mengunci scroll halaman, menutup dengan tombol Esc,
+ * menghentikan scroll halaman (termasuk Lenis), menutup dengan tombol Esc,
  * menjaga fokus keyboard tetap di dalam panel, dan mengembalikan fokus saat ditutup.
  */
 export function useModalBehaviour(active: boolean, panelRef: RefObject<HTMLElement | null>, onClose: () => void) {
+  const lenis = useLenis();
   // Simpan onClose di ref supaya efek tidak dijalankan ulang (dan fokus tidak melompat) setiap render
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
@@ -17,6 +19,7 @@ export function useModalBehaviour(active: boolean, panelRef: RefObject<HTMLEleme
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const { overflow } = document.body.style;
     document.body.style.overflow = "hidden";
+    lenis?.stop();
 
     const focusables = () =>
       Array.from(
@@ -52,7 +55,8 @@ export function useModalBehaviour(active: boolean, panelRef: RefObject<HTMLEleme
       cancelAnimationFrame(raf);
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = overflow;
-      previouslyFocused?.focus?.();
+      lenis?.start();
+      previouslyFocused?.focus?.({ preventScroll: true });
     };
-  }, [active, panelRef]);
+  }, [active, panelRef, lenis]);
 }

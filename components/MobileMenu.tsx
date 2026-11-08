@@ -1,17 +1,26 @@
 "use client";
 
-import Link from "next/link";
-import { useRef } from "react";
+import { useRef, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useLenis } from "lenis/react";
 import { useModalBehaviour } from "@/lib/useLockBody";
-import { NAV, isActive } from "@/lib/nav";
+import { NAV, scrollToSection } from "@/lib/nav";
 import styles from "./MobileMenu.module.css";
 
-type Props = { open: boolean; onClose: () => void; pathname: string };
+type Props = { open: boolean; onClose: () => void; activeId: string; onHome: boolean };
 
-export default function MobileMenu({ open, onClose, pathname }: Props) {
+export default function MobileMenu({ open, onClose, activeId, onHome }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
+  const lenis = useLenis();
   useModalBehaviour(open, panelRef, onClose);
+
+  function goTo(event: MouseEvent<HTMLAnchorElement>, id: string) {
+    if (!onHome) return;
+    event.preventDefault();
+    onClose();
+    // Tunggu menu tertutup dan scroll halaman dibuka lagi, baru meluncur ke bagian tujuan
+    window.setTimeout(() => scrollToSection(id, lenis), 60);
+  }
 
   return (
     <AnimatePresence>
@@ -22,6 +31,7 @@ export default function MobileMenu({ open, onClose, pathname }: Props) {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
+          data-lenis-prevent
           // Panel dibuka seperti terpal yang digelar dari atas
           initial={{ clipPath: "inset(0 0 100% 0)" }}
           animate={{ clipPath: "inset(0 0 0% 0)" }}
@@ -48,20 +58,20 @@ export default function MobileMenu({ open, onClose, pathname }: Props) {
             >
               {NAV.map((item) => (
                 <motion.li
-                  key={item.href}
+                  key={item.id}
                   variants={{
                     hidden: { y: 28, opacity: 0 },
                     show: { y: 0, opacity: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
                   }}
                 >
-                  <Link
-                    href={item.href}
+                  <a
+                    href={onHome ? `#${item.id}` : `/#${item.id}`}
                     className={styles.link}
-                    aria-current={isActive(pathname, item.href) ? "page" : undefined}
-                    onClick={onClose}
+                    aria-current={activeId === item.id ? "location" : undefined}
+                    onClick={(event) => goTo(event, item.id)}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </motion.ul>

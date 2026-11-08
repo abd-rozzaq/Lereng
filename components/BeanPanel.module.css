@@ -1,0 +1,161 @@
+.panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 1.25rem;
+  width: clamp(18.5rem, 28vw, 25rem);
+  height: 100%;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border-left: 1.5px solid var(--basalt);
+  background: var(--abu);
+}
+
+.week {
+  justify-self: start;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--ceri);
+  color: var(--kertas);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.top {
+  display: grid;
+  align-content: start;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.village {
+  margin-top: 0.5rem;
+  font-size: var(--step--1);
+  opacity: 0.75;
+}
+
+/* Siluet lereng mengisi ruang kosong di tengah panel */
+.altitude {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.slope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 56px;
+}
+
+.slope svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.slopeFill {
+  fill: var(--abu-2);
+}
+
+.slopeLine {
+  fill: none;
+  stroke: var(--basalt);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.slopeDot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ceri);
+  box-shadow: 0 0 0 4px var(--abu);
+  transform: translate(-50%, -50%);
+}
+
+.mdpl {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.taste {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--abu-2);
+}
+
+.process {
+  display: grid;
+  font-weight: 700;
+}
+
+.process span {
+  font-size: var(--step--1);
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.notes {
+  max-width: 30ch;
+}
+
+.buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.price {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+
+.price span {
+  display: block;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.add {
+  display: inline-grid;
+  place-items: center;
+  min-width: 9.5rem;
+  min-height: 46px;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ceri);
+  color: var(--kertas);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add:hover {
+  background: var(--ceri-deep);
+}
+
+.add[data-added] {
+  background: var(--terpal);
+}
+
+@media (max-width: 600px) {
+  .panel {
+    width: 82vw;
+    padding: 1.25rem 1.25rem 1.5rem;
+    gap: 1rem;
+  }
+}

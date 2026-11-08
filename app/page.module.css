@@ -1,132 +1,178 @@
-.intro {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 2rem 4rem;
-  align-items: end;
-  padding-block: clamp(2rem, 5vw, 3.5rem);
+/* ---------- Judul bagian ---------- */
+
+.sectionTitle,
+.sectionTitleLight {
+  font-size: clamp(3rem, 2rem + 5vw, 6.5rem);
+  line-height: 0.85;
 }
 
-.headline {
-  font-size: var(--step-4);
-  font-stretch: 115%;
-  max-width: 16ch;
+.sectionTitle {
+  color: var(--terpal);
 }
 
-.introSide {
-  display: grid;
-  gap: 1.5rem;
-  max-width: 40ch;
-}
-
-.ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.primary,
-.secondary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  padding: 0.6rem 1.25rem;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s, transform 0.15s;
-}
-
-.primary {
-  background: var(--ceri);
+.sectionTitleLight {
   color: var(--kertas);
 }
 
-.primary:hover {
-  background: var(--ceri-deep);
+.lead {
+  max-width: 50ch;
 }
 
-.secondary {
-  border: 1.5px solid var(--basalt);
-}
-
-.secondary:hover {
-  background: var(--basalt);
-  color: var(--abu);
-}
-
-.primary:active,
-.secondary:active {
-  transform: scale(0.97);
-}
-
-.week {
-  padding-top: clamp(3rem, 7vw, 5.5rem);
-}
-
-.weekHead {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.weekHead h2 {
-  font-size: var(--step-3);
-}
-
-.textLink {
-  font-weight: 600;
-  text-decoration-color: var(--ceri);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.25em;
-}
+/* ---------- Cerita ---------- */
 
 .band {
-  margin-top: clamp(4rem, 9vw, 7rem);
-  padding-block: clamp(3.5rem, 9vw, 7rem);
+  padding-block: clamp(4rem, 10vw, 7.5rem);
   background: var(--terpal);
   color: var(--kertas);
 }
 
 .bandTitle {
-  font-size: var(--step-4);
-  font-stretch: 118%;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
   max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.2rem + 3vw, 4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .bandText {
-  margin-top: 1.5rem;
-  max-width: 46ch;
+  margin-top: 1.75rem;
+  max-width: 54ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.journeyWrap {
+  padding-top: clamp(3rem, 8vw, 6rem);
+}
+
+.farmers {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem 4rem;
+  align-items: start;
+  margin-top: clamp(3rem, 8vw, 6rem);
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1.5px solid var(--basalt);
+}
+
+.farmersTitle {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* ---------- Kunjungi ---------- */
+
+.visit {
+  padding-top: clamp(5rem, 12vw, 9rem);
+}
+
+.visitHead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 4rem;
+  align-items: end;
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.visitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.info {
+  display: grid;
+  gap: 1rem;
+  max-width: 42ch;
+}
+
+/* Info alamat ikut menempel saat formulir di sebelahnya di-scroll */
+@media (min-width: 861px) {
+  .info {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}
+
+.h3 {
+  font-size: var(--step-1);
+}
+
+.hoursTitle {
+  margin-top: 1.25rem;
+}
+
+.address {
+  font-style: normal;
   font-size: var(--step-1);
   line-height: 1.45;
 }
 
-.bandLink {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  margin-top: 2rem;
-  padding: 0.6rem 1.25rem;
-  border: 1.5px solid var(--kertas);
-  border-radius: 6px;
+.hours {
+  margin: 0;
+  border-top: 1.5px solid var(--basalt);
+}
+
+.hoursRow {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--abu-2);
+}
+
+.hoursRow dt {
   font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
 }
 
-.bandLink:hover {
-  background: var(--kertas);
-  color: var(--terpal);
+.hoursRow dd {
+  margin: 0;
 }
 
-.bandLink:focus-visible {
-  outline-color: var(--kertas);
+.tour {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--terpal);
+  color: var(--kertas);
+  border-radius: 10px;
+}
+
+.tourTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.tourLead {
+  margin-block: 0.75rem 1.75rem;
+  max-width: 48ch;
 }
 
 @media (max-width: 860px) {
-  .intro {
+  .farmers,
+  .visitGrid,
+  .visitHead {
     grid-template-columns: 1fr;
-    align-items: start;
+  }
+
+  .tour {
+    margin-inline: calc(-1 * var(--gutter));
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .hoursRow {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
   }
 }

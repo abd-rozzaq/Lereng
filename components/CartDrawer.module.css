@@ -73,9 +73,10 @@
 }
 
 .name {
-  font-family: var(--font-stencil);
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
 

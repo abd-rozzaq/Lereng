@@ -17,11 +17,11 @@
 }
 
 .logo {
-  font-family: var(--font-stencil);
-  font-weight: 800;
-  font-size: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.04em;
   text-decoration: none;
   color: var(--terpal);
 }
@@ -45,7 +45,7 @@
 }
 
 .link:hover,
-.link[aria-current="page"] {
+.link[aria-current="location"] {
   color: var(--basalt);
 }
 

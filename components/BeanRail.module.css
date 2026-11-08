@@ -1,0 +1,128 @@
+.pinned {
+  position: relative;
+  /* Sebelum JavaScript mengukur, minimal satu layar */
+  min-height: 100svh;
+}
+
+.pinned .sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  padding-top: calc(var(--header-h) + 1.25rem);
+  transition: padding-top 0.35s var(--ease-out);
+}
+
+/* Saat header bersembunyi, ruang kosong di atas ikut dirapatkan */
+:global(html[data-header-hidden]) .pinned .sticky {
+  padding-top: 1.5rem;
+}
+
+.sticky {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--abu);
+}
+
+.free .sticky {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 3rem;
+  align-items: end;
+  padding-bottom: clamp(1rem, 3vh, 2rem);
+}
+
+.title {
+  font-size: clamp(3rem, 2rem + 5vw, 6.5rem);
+  line-height: 0.85;
+  color: var(--terpal);
+}
+
+.lead {
+  max-width: 50ch;
+}
+
+.viewport {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-block: 1.5px solid var(--basalt);
+}
+
+.free .viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  /* Panel pertama sejajar dengan tepi konten di atasnya */
+  padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  will-change: transform;
+}
+
+.track > article:last-child {
+  border-right: 1.5px solid var(--basalt);
+}
+
+.free .track > article {
+  height: auto; /* biarkan flexbox menyamakan tinggi semua panel */
+  scroll-snap-align: start;
+}
+
+.free .track {
+  height: auto;
+  will-change: auto;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: 1rem 1.25rem;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--abu-2);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--ceri);
+  transform-origin: left;
+}
+
+.counter {
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+
+  .lead {
+    font-size: var(--step--1);
+  }
+}
+
+/* Layar pendek (HP mendatar, laptop kecil): kurangi teks pengantar */
+@media (max-height: 640px) {
+  .lead {
+    display: none;
+  }
+}
