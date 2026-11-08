@@ -2,23 +2,25 @@
   position: relative;
 }
 
+/* Terpal ada di dalam blok membulat yang menjorok dari tepi layar */
 .tarpSticky {
   position: sticky;
   top: 0;
   z-index: 0;
-  overflow: hidden;
-  background: var(--espresso-deep);
+  padding: 0.5rem var(--gutter) 0;
 }
 
 .tarpScale {
   position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
   transform-origin: 50% 0%;
 }
 
 .dim {
   position: absolute;
   inset: 0;
-  background: var(--espresso-deep);
+  background: var(--karat-tua);
   pointer-events: none;
 }
 
@@ -26,81 +28,49 @@
 .sheet {
   position: relative;
   z-index: 1;
+  margin-top: calc(-1 * var(--radius-xl));
   background: var(--krem);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  margin-top: -18px;
-  box-shadow: 0 -10px 30px rgb(43 26 18 / 0.14);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: 0 -16px 40px rgb(125 44 15 / 0.1);
 }
 
 .intro {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 2rem 4rem;
-  align-items: end;
-  min-height: 70svh;
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  justify-items: center;
+  gap: 1.5rem;
+  min-height: 72svh;
   align-content: center;
+  padding-block: clamp(3rem, 7vw, 5rem);
+  text-align: center;
+}
+
+.kicker {
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--permukaan);
+  border: 1px solid var(--garis);
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--karat-muda);
 }
 
 .headline {
-  font-size: clamp(2.2rem, 1.4rem + 3.4vw, 4.6rem);
-  line-height: 1.02;
-  max-width: 15ch;
+  max-width: 13ch;
+  font-size: var(--step-5);
+  line-height: 0.88;
 }
 
-.side {
-  display: grid;
-  gap: 1.5rem;
-  max-width: 40ch;
+.lead {
+  max-width: 46ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--karat-muda);
 }
 
 .ctas {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
-}
-
-.primary,
-.secondary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  padding: 0.6rem 1.25rem;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s, transform 0.15s;
-}
-
-.primary {
-  background: var(--espresso);
-  color: var(--kertas);
-}
-
-.primary:hover {
-  background: var(--oranye);
-  color: var(--teks);
-}
-
-.secondary {
-  border: 1.5px solid var(--teks);
-}
-
-.secondary:hover {
-  background: var(--teks);
-  color: var(--krem);
-}
-
-.primary:active,
-.secondary:active {
-  transform: scale(0.97);
-}
-
-@media (max-width: 860px) {
-  .intro {
-    grid-template-columns: 1fr;
-    align-items: start;
-    min-height: 0;
-  }
+  margin-top: 0.5rem;
 }

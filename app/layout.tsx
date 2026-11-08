@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import "@fontsource-variable/plus-jakarta-sans/wght.css";
-import "@fontsource-variable/unbounded/wght.css";
+import "@fontsource-variable/manrope/wght.css";
+import "@fontsource/bayon/400.css";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import Providers from "@/components/Providers";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f3eee7",
+  themeColor: "#faf0e0",
   width: "device-width",
   initialScale: 1,
 };

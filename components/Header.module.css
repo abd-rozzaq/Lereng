@@ -2,10 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--krem) 97%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--garis);
+  background: color-mix(in srgb, var(--krem) 94%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .inner {
@@ -17,47 +16,70 @@
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 2.1rem;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   text-decoration: none;
-  color: var(--espresso);
+  color: var(--karat);
+}
+
+/* Biji kopi kecil di depan nama merek */
+.logo::before {
+  content: "";
+  width: 0.62em;
+  height: 0.7em;
+  border-radius: 50%;
+  background:
+    linear-gradient(105deg, transparent 46%, var(--karat-tua) 47% 53%, transparent 54%),
+    var(--oranye);
+  transform: rotate(-20deg) translateY(-0.04em);
 }
 
 .nav ul {
   display: flex;
   gap: 0.25rem;
   margin: 0;
-  padding: 0;
+  padding: 0.3rem;
   list-style: none;
+  border-radius: var(--radius-pill);
+  background: var(--permukaan);
+  border: 1px solid var(--garis);
 }
 
 .link {
   position: relative;
   display: block;
-  padding: 0.5rem 0.85rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-weight: 560;
-  color: color-mix(in srgb, var(--teks) 75%, transparent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--karat-muda);
   transition: color 0.2s;
+  isolation: isolate;
 }
 
 .link:hover,
 .link[aria-current="location"] {
-  color: var(--teks);
+  color: var(--karat);
 }
 
-/* Penanda halaman aktif: meluncur ke menu yang dipilih */
+/* Penanda bagian aktif: pil oranye yang meluncur ke menu yang sedang dibaca */
 .marker {
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.2rem;
-  height: 3px;
-  border-radius: 2px;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
   background: var(--oranye);
+}
+
+.link[aria-current="location"] {
+  color: var(--karat-tua);
 }
 
 .actions {
@@ -71,20 +93,35 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 44px;
-  padding: 0.4rem 0.9rem;
-  border: 1.5px solid var(--teks);
-  border-radius: 999px;
-  background: transparent;
-  font-weight: 600;
+  min-height: 46px;
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
 
-.cartButton:hover,
+.cartButton {
+  border: 0;
+  background: var(--karat);
+  color: var(--persik);
+}
+
+.cartButton:hover {
+  background: var(--oranye);
+  color: var(--karat-tua);
+}
+
+.menuButton {
+  display: none;
+  border: 1.5px solid var(--karat);
+  background: transparent;
+  color: var(--karat);
+}
+
 .menuButton:hover {
-  background: var(--teks);
-  color: var(--krem);
+  background: var(--karat);
+  color: var(--persik);
 }
 
 .badge {
@@ -93,16 +130,12 @@
   min-width: 1.5rem;
   height: 1.5rem;
   padding-inline: 0.35rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--oranye);
-  color: var(--teks);
+  color: var(--karat-tua);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
-}
-
-.menuButton {
-  display: none;
 }
 
 .menuIcon {
@@ -117,7 +150,7 @@
   border-radius: 1px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
   .nav {
     display: none;
   }
@@ -127,6 +160,6 @@
   }
 
   .cartButton {
-    padding-inline: 0.75rem;
+    padding-inline: 0.9rem;
   }
 }

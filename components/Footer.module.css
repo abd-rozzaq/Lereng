@@ -1,63 +1,82 @@
 .footer {
-  margin-top: clamp(4rem, 10vw, 8rem);
-  padding-block: 3.5rem 2rem;
-  background: var(--teks);
-  color: var(--krem);
+  margin: clamp(4rem, 10vw, 8rem) var(--gutter) 0;
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background: var(--karat);
+  color: var(--persik);
+  overflow: hidden;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr auto;
+  grid-template-columns: 1.5fr 1fr auto;
   gap: 2rem;
   align-items: start;
 }
 
-.logo {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 1.6rem + 2vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  color: var(--kertas);
-}
-
 .tagline {
-  margin-top: 0.75rem;
-  opacity: 0.8;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 0.95;
+  text-transform: uppercase;
 }
 
 .address {
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: rgb(255 239 213 / 0.85);
 }
 
 .links {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  gap: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .links a {
-  text-decoration-color: color-mix(in srgb, var(--krem) 40%, transparent);
-  text-underline-offset: 0.2em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0.35rem 1rem;
+  border: 1.5px solid rgb(255 239 213 / 0.4);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .links a:hover {
-  text-decoration-color: var(--oranye);
+  background: var(--oranye);
+  border-color: var(--oranye);
+  color: var(--karat-tua);
 }
 
 .links a:focus-visible {
-  outline-color: var(--kertas);
+  outline-color: var(--persik);
 }
 
 .note {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgb(255 251 247 / 0.15);
+  border-top: 1px solid rgb(255 239 213 / 0.15);
   font-size: var(--step--1);
-  opacity: 0.7;
+  color: rgb(255 239 213 / 0.75);
+}
+
+/* Nama merek raksasa selebar layar, terpotong sedikit di bawah */
+.wordmark {
+  margin: clamp(1rem, 3vw, 2rem) 0 -0.12em;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 31vw, 30rem);
+  line-height: 0.8;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--oranye);
+  user-select: none;
 }
 
 @media (max-width: 760px) {

@@ -55,10 +55,10 @@ Cara mencoba: di iPhone, **Pengaturan → Aksesibilitas → Gerakan → Kurangi 
 
 ## Font
 
-Dua font dari Google Fonts, disimpan langsung di proyek lewat Fontsource (`@fontsource-variable/...`), jadi situs tidak perlu memanggil server Google saat dibuka:
+Dua font dari Google Fonts, disimpan langsung di proyek lewat Fontsource, jadi situs tidak perlu memanggil server Google saat dibuka:
 
-- **Plus Jakarta Sans** untuk teks dan antarmuka. Dibuat oleh Tokotype, studio huruf asal Indonesia.
-- **Unbounded** untuk merek dan judul besar.
+- **Bayon** untuk judul, nama merek, dan nama kopi. Selalu huruf kapital, ramping, dan tebal.
+- **Manrope** (`@fontsource-variable/manrope`) untuk teks dan antarmuka.
 
 ## Yang sudah diuji
 
@@ -83,16 +83,22 @@ Data kopi ada di `lib/beans.ts`. Menambah atau mengubah kopi cukup dilakukan di 
 
 ## Desain
 
+Arah visual terinspirasi gaya situs kopi modern: latar krem hangat, wadah besar bersudut bulat, tombol berbentuk pil, dan judul kapital yang tebal. Tata letak dan isinya tetap milik Lereng.
+
 - **Warna** (semua token ada di `app/globals.css`):
 
   | Token | Warna | Dipakai untuk |
   | --- | --- | --- |
-  | `--krem` | `#F3EEE7` | Latar halaman |
-  | `--persik` | `#FFD5BD` | Terpal jemuran di hero |
-  | `--oranye` | `#D7692A` | Judul bagian, penanda menu, progres, label, titik ketinggian |
-  | `--oranye-deep` | `#A84E1C` | Teks oranye kecil, outline fokus |
-  | `--espresso` | `#2B1A12` | Tombol utama, pita Cerita, menu HP, formulir tur |
-  | `--teks` | `#24140C` | Teks utama |
+  | `--krem` | `#FAF0E0` | Latar halaman |
+  | `--permukaan` | `#FCF7EE` | Kartu kopi, kartu info, kolom isian |
+  | `--terpal` | `#F2C79A` | Terpal jemuran di hero |
+  | `--oranye` | `#FF8342` | Tombol utama, penanda menu, progres, label |
+  | `--karat` | `#7D2C0F` | Teks utama, blok gelap (Cerita, formulir, footer) |
+  | `--karat-tua` | `#5A1F08` | Teks di atas oranye |
+  | `--karat-muda` | `#AF4F29` | Teks sekunder |
+  | `--persik` | `#FFEFD5` | Teks terang di atas karat |
 
-- **Kontras (WCAG AA):** di atas oranye, teks selalu gelap (5.0 : 1), karena teks putih di atas oranye hanya 3.4 : 1. Teks oranye berukuran kecil memakai `--oranye-deep` (4.8 : 1). Oranye biasa hanya dipakai untuk teks besar (judul bagian) dan elemen non-teks.
+- **Kontras (WCAG AA):** teks utama 8.3 : 1, teks sekunder 4.7 : 1, teks di atas oranye 5.3 : 1, teks terang di atas karat 8.3 : 1. Oranye tidak pernah dipakai sebagai warna teks di latar terang (hanya 2.2 : 1).
+- **Sudut:** `--radius-xl` untuk wadah besar, `--radius-lg` untuk kartu, `--radius-pill` untuk tombol dan label.
+- **Tombol bersama:** kelas `.btn`, `.btn-oranye`, `.btn-garis`, dan `.btn-panah` ada di `app/globals.css`.
 - **Prinsip:** hanya satu momen besar di setiap bagian. Animasi lain hanya muncul sebagai respons atas tindakan pengunjung.

@@ -8,13 +8,13 @@
   position: sticky;
   top: 0;
   height: 100svh;
-  padding-top: calc(var(--header-h) + 1.25rem);
+  padding-top: calc(var(--header-h) + 1rem);
   transition: padding-top 0.35s var(--ease-out);
 }
 
 /* Saat header bersembunyi, ruang kosong di atas ikut dirapatkan */
 :global(html[data-header-hidden]) .pinned .sticky {
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
 }
 
 .sticky {
@@ -29,28 +29,27 @@
 }
 
 .head {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 0.75rem 3rem;
-  align-items: end;
-  padding-bottom: clamp(1rem, 3vh, 2rem);
+  padding-bottom: clamp(1rem, 3vh, 1.75rem);
 }
 
 .title {
-  font-size: clamp(3rem, 2rem + 5vw, 6.5rem);
-  line-height: 0.85;
-  color: var(--oranye); /* teks besar: kontras ≥ 3:1 */
+  font-size: var(--step-4);
 }
 
 .lead {
-  max-width: 50ch;
+  max-width: 42ch;
+  color: var(--karat-muda);
 }
 
 .viewport {
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  border-block: 1.5px solid var(--teks);
 }
 
 .free .viewport {
@@ -61,19 +60,16 @@
 
 .track {
   display: flex;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
   width: max-content;
   height: 100%;
-  /* Panel pertama sejajar dengan tepi konten di atasnya */
+  /* Kartu pertama sejajar dengan tepi konten di atasnya */
   padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2));
   will-change: transform;
 }
 
-.track > article:last-child {
-  border-right: 1.5px solid var(--teks);
-}
-
 .free .track > article {
-  height: auto; /* biarkan flexbox menyamakan tinggi semua panel */
+  height: auto; /* biarkan flexbox menyamakan tinggi semua kartu */
   scroll-snap-align: start;
 }
 
@@ -86,41 +82,48 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding-block: 1rem 1.25rem;
+  padding-block: 1.1rem 1.25rem;
 }
 
 .progressTrack {
   flex: 1;
-  height: 3px;
-  border-radius: 2px;
+  height: 6px;
+  border-radius: var(--radius-pill);
   background: var(--garis);
   overflow: hidden;
 }
 
 .progressBar {
   height: 100%;
+  border-radius: inherit;
   background: var(--oranye);
   transform-origin: left;
 }
 
 .counter {
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--karat);
+  color: var(--persik);
   font-size: var(--step--1);
-  font-weight: 600;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-@media (max-width: 760px) {
-  .head {
-    grid-template-columns: 1fr;
-  }
+.free .counter {
+  background: none;
+  padding: 0;
+  color: var(--karat-muda);
+}
 
+@media (max-width: 760px) {
   .lead {
     font-size: var(--step--1);
   }
 }
 
-/* Layar pendek (HP mendatar, laptop kecil): kurangi teks pengantar */
+/* Layar pendek (HP mendatar, laptop kecil): sembunyikan teks pengantar */
 @media (max-height: 640px) {
   .lead {
     display: none;

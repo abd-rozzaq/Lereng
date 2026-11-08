@@ -9,7 +9,7 @@
 .title {
   font-size: clamp(3.5rem, 2.5rem + 6vw, 8rem);
   line-height: 0.88;
-  color: var(--oranye); /* teks besar: kontras ≥ 3:1 */
+  color: var(--karat);
 }
 
 .lead {

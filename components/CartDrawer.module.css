@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 70;
-  background: rgb(43 26 18 / 0.45);
+  background: rgb(90 31 8 / 0.45);
 }
 
 .panel {
@@ -15,7 +15,9 @@
   flex-direction: column;
   width: min(100%, 26rem);
   background: var(--krem);
-  box-shadow: -12px 0 40px rgb(43 26 18 / 0.18);
+  box-shadow: -12px 0 40px rgb(125 44 15 / 0.2);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  overflow: hidden;
 }
 
 .head {
@@ -24,20 +26,20 @@
   justify-content: space-between;
   height: var(--header-h);
   padding-inline: 1.5rem;
-  border-bottom: 1px solid var(--garis);
+  border-bottom: 1px dashed var(--garis);
 }
 
 .head h2 {
-  font-size: var(--step-1);
+  font-size: var(--step-2);
 }
 
 .close {
   min-height: 44px;
   padding: 0.4rem 1rem;
-  border: 1.5px solid var(--teks);
+  border: 1.5px solid var(--karat);
   border-radius: 999px;
   background: transparent;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -62,7 +64,7 @@
 
 .item {
   overflow: hidden;
-  border-bottom: 1px solid var(--garis);
+  border-bottom: 1px dashed var(--garis);
 }
 
 .itemInner {
@@ -74,9 +76,10 @@
 
 .name {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: 1.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -90,7 +93,7 @@
   display: inline-flex;
   align-items: center;
   align-self: start;
-  border: 1.5px solid var(--teks);
+  border: 1.5px solid var(--karat);
   border-radius: 999px;
 }
 
@@ -138,15 +141,15 @@
 .checkout {
   min-height: 52px;
   border: 0;
-  border-radius: 6px;
-  background: var(--espresso);
-  color: var(--kertas);
+  border-radius: 999px;
+  background: var(--oranye);
+  color: var(--karat-tua);
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .checkout:hover {
-  background: var(--oranye);
-  color: var(--teks);
+  background: var(--karat);
+  color: var(--persik);
 }

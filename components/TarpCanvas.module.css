@@ -1,7 +1,7 @@
 .wrap {
   position: relative;
-  height: clamp(320px, 62svh, 640px);
-  background: var(--persik);
+  height: clamp(320px, 66svh, 680px);
+  background: var(--terpal);
   overflow: hidden;
 }
 
@@ -22,47 +22,45 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0 var(--gutter) 2.6rem;
+  padding: 0 clamp(1.25rem, 3vw, 2.25rem) calc(2.6rem + var(--radius-xl) * 0.6);
   pointer-events: none;
-  color: var(--kertas);
 }
 
 .hint {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgb(125 44 15 / 0.9);
+  color: var(--persik);
   font-size: var(--step--1);
-  font-weight: 560;
-  padding: 0.35rem 0.7rem;
-  background: rgb(43 26 18 / 0.85);
-  border-radius: 4px;
+  font-weight: 600;
 }
 
 .reset {
   pointer-events: auto;
   min-height: 44px;
-  padding: 0.4rem 1rem;
-  border: 1.5px solid var(--kertas);
-  border-radius: 999px;
-  background: rgb(43 26 18 / 0.85);
-  font-weight: 600;
+  padding: 0.4rem 1.1rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--permukaan);
+  color: var(--karat);
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .reset:hover {
-  background: var(--kertas);
-  color: var(--espresso-deep);
-}
-
-.reset:focus-visible {
-  outline-color: var(--kertas);
+  background: var(--oranye);
+  color: var(--karat-tua);
 }
 
 @media (max-width: 600px) {
-  /* Di HP terpal dibuat lebih pendek supaya judul sudah terlihat tanpa scroll */
+  /* Di HP terpal dibuat lebih pendek supaya judul cepat terlihat */
   .wrap {
-    height: clamp(280px, 44svh, 420px);
+    height: clamp(280px, 46svh, 420px);
   }
 
   .hint {
     max-width: 19ch;
+    border-radius: var(--radius-md);
   }
 }

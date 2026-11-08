@@ -11,55 +11,55 @@
 
 .field {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .field label {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .field input {
   width: 100%;
-  min-height: 48px;
-  padding: 0.6rem 0.8rem;
-  border: 1.5px solid transparent;
-  border-radius: 6px;
+  min-height: 52px;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
   background: var(--kertas);
-  color: var(--teks);
+  color: var(--karat);
   font: inherit;
   font-size: max(16px, 1rem); /* 16px mencegah iPhone otomatis zoom saat input diketuk */
 }
 
 .field input:focus-visible {
-  outline: 3px solid var(--kertas);
+  outline: 3px solid var(--oranye);
   outline-offset: 2px;
 }
 
 .field input[aria-invalid="true"] {
   border-color: var(--oranye);
-  box-shadow: 0 0 0 2px var(--oranye);
 }
 
 .error {
   display: inline-block;
   justify-self: start;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  background: var(--kertas);
-  color: var(--oranye-deep);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--oranye);
+  color: var(--karat-tua);
   font-size: var(--step--1);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .submit,
 .again {
   justify-self: start;
-  min-height: 50px;
-  padding: 0.6rem 1.5rem;
+  min-height: 52px;
+  margin-top: 0.25rem;
+  padding: 0.6rem 1.75rem;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   background: var(--oranye);
-  color: var(--teks);
+  color: var(--karat-tua);
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -67,12 +67,12 @@
 
 .submit:hover,
 .again:hover {
-  background: var(--kertas);
+  background: var(--persik);
 }
 
 .submit:focus-visible,
 .again:focus-visible {
-  outline-color: var(--kertas);
+  outline-color: var(--persik);
 }
 
 .done {
@@ -81,9 +81,10 @@
 }
 
 .doneTitle {
+  font-family: var(--font-display);
   font-size: var(--step-2);
-  font-weight: 800;
-  line-height: 1.1;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .again {

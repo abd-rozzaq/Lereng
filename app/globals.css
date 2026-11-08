@@ -1,37 +1,48 @@
 :root {
-  /* Palet hangat: krem, persik, oranye sangrai, dan coklat espresso.
-     Aturan kontras (WCAG AA):
-     - di atas --oranye, teks selalu --teks (5.0:1), bukan putih (3.4:1)
-     - teks berwarna oranye di latar terang memakai --oranye-deep (4.8:1) */
-  --krem: #f3eee7;          /* latar halaman */
-  --permukaan: #fffbf7;     /* kartu, kolom isian */
-  --persik: #ffd5bd;        /* bidang hangat: terpal, lembaran pembuka */
-  --garis: #e4d8ca;         /* garis tipis pemisah */
-  --oranye: #d7692a;        /* aksen: penanda, progres, label */
-  --oranye-deep: #a84e1c;   /* teks oranye, outline fokus */
-  --espresso: #2b1a12;      /* bidang gelap, tombol utama */
-  --espresso-deep: #1e120c;
-  --teks: #24140c;
-  --kertas: #fffbf7;        /* teks terang di atas espresso */
+  /* Palet hangat: krem, oranye, dan coklat karat.
+     Aturan kontras (WCAG AA), dihitung saat merancang:
+     - teks utama --karat di atas krem: 8.3:1
+     - teks kecil sekunder --karat-muda di atas krem: 4.7:1
+     - di atas --oranye, teks selalu --karat-tua (5.3:1)
+     - teks terang di atas --karat selalu --persik (8.3:1)
+     - --oranye tidak pernah dipakai sebagai warna teks di latar terang (hanya 2.2:1) */
+  --krem: #faf0e0;          /* latar halaman */
+  --permukaan: #fcf7ee;     /* kartu dan wadah yang "naik" dari latar */
+  --persik: #ffefd5;        /* teks terang di atas coklat */
+  --terpal: #f2c79a;        /* terpal jemuran di hero */
+  --lereng: #f6dcbd;        /* siluet lereng di kartu kopi */
+  --garis: #ead6bd;         /* garis tipis pemisah */
+  --oranye: #ff8342;        /* tombol utama, penanda, progres, label */
+  --karat-muda: #af4f29;    /* teks sekunder, outline fokus */
+  --karat: #7d2c0f;         /* teks utama, blok gelap */
+  --karat-tua: #5a1f08;     /* teks di atas oranye, hover gelap */
+  --kertas: #fcf7ee;        /* kolom isian di atas blok gelap */
 
   /* Dua font dari Google Fonts, disimpan di proyek lewat Fontsource */
-  --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;   /* teks dan antarmuka */
-  --font-display: "Unbounded Variable", "Plus Jakarta Sans Variable", sans-serif; /* merek dan judul besar */
+  --font-sans: "Manrope Variable", system-ui, sans-serif; /* teks dan antarmuka */
+  --font-display: "Bayon", "Manrope Variable", sans-serif; /* judul, merek, nama kopi (selalu kapital) */
 
-  /* Skala tipe (rasio ~1.333) */
+  /* Skala tipe */
   --step--1: clamp(0.84rem, 0.82rem + 0.1vw, 0.9rem);
   --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.1rem);
-  --step-1: clamp(1.25rem, 1.18rem + 0.35vw, 1.45rem);
-  --step-2: clamp(1.6rem, 1.45rem + 0.75vw, 2rem);
-  --step-3: clamp(2.1rem, 1.8rem + 1.5vw, 3rem);
-  --step-4: clamp(2.6rem, 2rem + 3vw, 4.6rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.35vw, 1.4rem);
+  --step-2: clamp(1.8rem, 1.5rem + 1.2vw, 2.6rem);
+  --step-3: clamp(2.4rem, 1.9rem + 2.2vw, 3.8rem);
+  --step-4: clamp(3.2rem, 2rem + 5vw, 7rem);
+  --step-5: clamp(4rem, 2rem + 9vw, 10rem);
+
+  /* Sudut membulat, makin besar wadahnya makin bulat */
+  --radius-xl: clamp(24px, 3vw, 40px);
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
 
-  --gutter: clamp(1.25rem, 4vw, 3rem);
-  --max: 78rem;
-  --header-h: 4.25rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 80rem;
+  --header-h: 4.5rem;
 }
 
 *,
@@ -47,29 +58,38 @@ html {
 body {
   margin: 0;
   background: var(--krem);
-  color: var(--teks);
+  color: var(--karat);
   font-family: var(--font-sans);
   font-size: var(--step-0);
-  line-height: 1.55;
+  font-weight: 500;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
+/* Judul besar: Bayon, kapital, rapat */
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -94,14 +114,14 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--oranye-deep);
+  outline: 3px solid var(--karat-muda);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 ::selection {
-  background: var(--espresso);
-  color: var(--kertas);
+  background: var(--oranye);
+  color: var(--karat-tua);
 }
 
 .container {
@@ -126,10 +146,10 @@ button {
   left: var(--gutter);
   top: -4rem;
   z-index: 100;
-  padding: 0.6rem 1rem;
-  background: var(--teks);
-  color: var(--kertas);
-  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
+  background: var(--karat);
+  color: var(--persik);
+  border-radius: var(--radius-pill);
   text-decoration: none;
 }
 
@@ -143,4 +163,64 @@ button {
 
 .prose p + p {
   margin-top: 1em;
+}
+
+/* ---------- Tombol berbentuk pil, dipakai di banyak bagian ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 50px;
+  padding: 0.6rem 1.6rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-oranye {
+  background: var(--oranye);
+  color: var(--karat-tua);
+}
+
+.btn-oranye:hover {
+  background: var(--karat);
+  color: var(--persik);
+}
+
+.btn-garis {
+  border-color: currentColor;
+}
+
+.btn-garis:hover {
+  background: var(--karat);
+  border-color: var(--karat);
+  color: var(--persik);
+}
+
+/* Lingkaran panah kecil di dalam tombol */
+.btn-panah {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: -0.9rem;
+  border-radius: 50%;
+  background: var(--karat-tua);
+  color: var(--oranye);
+  transition: transform 0.25s var(--ease-out);
+}
+
+.btn:hover .btn-panah {
+  transform: translateX(3px) rotate(-45deg);
+  background: var(--oranye);
+  color: var(--karat-tua);
 }

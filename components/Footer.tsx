@@ -12,10 +12,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
-        <div>
-          <p className={styles.logo}>Lereng</p>
-          <p className={styles.tagline}>Robusta Dampit, disangrai di Malang.</p>
-        </div>
+        <p className={styles.tagline}>Robusta Dampit, disangrai di Malang.</p>
 
         <address className={styles.address}>
           Gudang Lereng
@@ -46,6 +43,11 @@ export default function Footer() {
       <div className={`container ${styles.note}`}>
         <p>Lereng adalah merek fiktif yang dibuat untuk portofolio. Dibangun dengan Next.js, Motion, dan Lenis.</p>
       </div>
+
+      {/* Nama merek besar sebagai penutup halaman */}
+      <p className={styles.wordmark} aria-hidden="true">
+        Lereng
+      </p>
     </footer>
   );
 }

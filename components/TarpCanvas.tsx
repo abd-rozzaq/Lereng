@@ -21,8 +21,8 @@ type Bean = {
 };
 
 // Ceri dari merah bata segar sampai coklat tua yang hampir kering
-const COLORS = ["#c0392b", "#a32a1e", "#86251c", "#6a2018", "#4f1a12"];
-const TARP = "#ffd5bd"; // terpal persik
+const COLORS = ["#c8331f", "#a8281a", "#8a2215", "#6c1d10", "#4f160a"];
+const TARP = "#f2c79a"; // terpal krem kecoklatan
 const POUR_MS = 1100;
 
 // Angka acak dengan seed, supaya susunan ceri sama setiap kali halaman dibuka
@@ -74,7 +74,7 @@ export default function TarpCanvas() {
       t.fillRect(0, 0, width, height);
 
       // Anyaman terpal
-      t.strokeStyle = "rgba(43,26,18,0.05)";
+      t.strokeStyle = "rgba(125,44,15,0.06)";
       t.lineWidth = 1;
       t.beginPath();
       for (let x = 0; x < width; x += 5) {
@@ -88,7 +88,7 @@ export default function TarpCanvas() {
       t.stroke();
 
       // Lipatan tepi dan lubang tali (mata ayam) di sepanjang pinggir terpal
-      t.strokeStyle = "rgba(43,26,18,0.16)";
+      t.strokeStyle = "rgba(125,44,15,0.18)";
       t.lineWidth = 2;
       t.strokeRect(10, 10, width - 20, height - 20);
       const spacing = width < 600 ? 64 : 88;
@@ -96,11 +96,11 @@ export default function TarpCanvas() {
         for (const y of [22, height - 22]) {
           t.beginPath();
           t.arc(x, y, 5.5, 0, Math.PI * 2);
-          t.fillStyle = "#b8aa9c";
+          t.fillStyle = "#fcf7ee";
           t.fill();
           t.beginPath();
           t.arc(x, y, 2.8, 0, Math.PI * 2);
-          t.fillStyle = "#2b1a12";
+          t.fillStyle = "#7d2c0f";
           t.fill();
         }
       }
@@ -145,7 +145,7 @@ export default function TarpCanvas() {
       const progressOf = (bean: Bean) => (pouring ? Math.min(1, Math.max(0, (elapsed - bean.delay) / 420)) : 1);
 
       // Bayangan
-      ctx!.fillStyle = "rgba(43,26,18,0.28)";
+      ctx!.fillStyle = "rgba(90,31,8,0.3)";
       ctx!.beginPath();
       for (const bean of beans) {
         const p = progressOf(bean);

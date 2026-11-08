@@ -9,7 +9,7 @@ import TarpCanvas from "./TarpCanvas";
 import styles from "./Hero.module.css";
 
 /**
- * Terpal menempel di atas layar, lalu teks pembuka naik menutupinya seperti lembaran kertas.
+ * Terpal menempel di atas layar, lalu lembaran teks pembuka naik menutupinya.
  * Saat tertutup, terpal sedikit mengecil dan meredup supaya terasa "di belakang".
  */
 export default function Hero() {
@@ -17,8 +17,8 @@ export default function Hero() {
   const reduceMotion = usePrefersReducedMotion();
   const lenis = useLenis();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.92]);
-  const dim = useTransform(scrollYProgress, [0, 1], [0, 0.45]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.9]);
+  const dim = useTransform(scrollYProgress, [0, 1], [0, 0.5]);
 
   function goTo(event: MouseEvent<HTMLAnchorElement>, id: string) {
     event.preventDefault();
@@ -36,22 +36,26 @@ export default function Hero() {
 
       <div className={styles.sheet}>
         <div className={`container ${styles.intro}`}>
+          <p className={styles.kicker}>Robusta Dampit, disangrai tiap Selasa di Malang</p>
           <h1 id="judul-utama" className={styles.headline}>
-            Robusta dari lereng Semeru, dijemur tiga minggu di Dampit.
+            Dari lereng Semeru, dijemur tiga minggu
           </h1>
-          <div className={styles.side}>
-            <p>
-              Kami membeli ceri merah langsung dari kebun-kebun kecil di Dampit, Kabupaten Malang, lalu menyangrainya
-              sendiri setiap Selasa. Kopi yang kamu terima paling lama berumur seminggu dari sangrai.
-            </p>
-            <div className={styles.ctas}>
-              <a href="#kopi" className={styles.primary} onClick={(event) => goTo(event, "kopi")}>
-                Lihat kopi
-              </a>
-              <a href="#cerita" className={styles.secondary} onClick={(event) => goTo(event, "cerita")}>
-                Cara kami mengolahnya
-              </a>
-            </div>
+          <p className={styles.lead}>
+            Kami membeli ceri merah langsung dari kebun-kebun kecil di Dampit, lalu menyangrainya sendiri. Kopi yang
+            kamu terima paling lama berumur seminggu dari sangrai.
+          </p>
+          <div className={styles.ctas}>
+            <a href="#kopi" className="btn btn-oranye" onClick={(event) => goTo(event, "kopi")}>
+              Lihat kopi
+              <span className="btn-panah" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
+            <a href="#cerita" className="btn btn-garis" onClick={(event) => goTo(event, "cerita")}>
+              Cara kami mengolahnya
+            </a>
           </div>
         </div>
       </div>
