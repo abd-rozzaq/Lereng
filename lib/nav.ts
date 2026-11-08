@@ -15,13 +15,14 @@ export const NAV = [
 export function scrollToSection(id: string, lenis?: Lenis) {
   const target = document.getElementById(id);
   if (!target) return;
-  // Beranda selalu ke paling atas; bagian lain ke tepi atasnya
+  // Hitung posisi tujuan sebagai angka mutlak di halaman (bukan relatif ke posisi scroll
+  // saat ini), supaya tetap tepat walau scroll sedang bergerak saat menu diklik.
+  // Beranda selalu ke paling atas.
+  const destination = id === "beranda" ? 0 : Math.round(target.getBoundingClientRect().top + window.scrollY);
   if (lenis) {
-    lenis.scrollTo(id === "beranda" ? 0 : target, { duration: 1.2 });
-  } else if (id === "beranda") {
-    window.scrollTo(0, 0);
+    lenis.scrollTo(destination, { duration: 1.2 });
   } else {
-    target.scrollIntoView();
+    window.scrollTo(0, destination);
   }
   history.replaceState(null, "", id === "beranda" ? location.pathname : `#${id}`);
 }

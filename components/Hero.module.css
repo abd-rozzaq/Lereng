@@ -7,7 +7,7 @@
   top: 0;
   z-index: 0;
   overflow: hidden;
-  background: var(--terpal-deep);
+  background: var(--espresso-deep);
 }
 
 .tarpScale {
@@ -18,7 +18,7 @@
 .dim {
   position: absolute;
   inset: 0;
-  background: var(--terpal-deep);
+  background: var(--espresso-deep);
   pointer-events: none;
 }
 
@@ -26,11 +26,11 @@
 .sheet {
   position: relative;
   z-index: 1;
-  background: var(--abu);
+  background: var(--krem);
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
   margin-top: -18px;
-  box-shadow: 0 -10px 30px rgb(23 48 111 / 0.18);
+  box-shadow: 0 -10px 30px rgb(43 26 18 / 0.14);
 }
 
 .intro {
@@ -74,21 +74,22 @@
 }
 
 .primary {
-  background: var(--ceri);
+  background: var(--espresso);
   color: var(--kertas);
 }
 
 .primary:hover {
-  background: var(--ceri-deep);
+  background: var(--oranye);
+  color: var(--teks);
 }
 
 .secondary {
-  border: 1.5px solid var(--basalt);
+  border: 1.5px solid var(--teks);
 }
 
 .secondary:hover {
-  background: var(--basalt);
-  color: var(--abu);
+  background: var(--teks);
+  color: var(--krem);
 }
 
 .primary:active,

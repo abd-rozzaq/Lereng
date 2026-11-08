@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--abu);
+  background: var(--krem);
 }
 
 .free .sticky {
@@ -39,7 +39,7 @@
 .title {
   font-size: clamp(3rem, 2rem + 5vw, 6.5rem);
   line-height: 0.85;
-  color: var(--terpal);
+  color: var(--oranye); /* teks besar: kontras ≥ 3:1 */
 }
 
 .lead {
@@ -50,7 +50,7 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  border-block: 1.5px solid var(--basalt);
+  border-block: 1.5px solid var(--teks);
 }
 
 .free .viewport {
@@ -69,7 +69,7 @@
 }
 
 .track > article:last-child {
-  border-right: 1.5px solid var(--basalt);
+  border-right: 1.5px solid var(--teks);
 }
 
 .free .track > article {
@@ -93,13 +93,13 @@
   flex: 1;
   height: 3px;
   border-radius: 2px;
-  background: var(--abu-2);
+  background: var(--garis);
   overflow: hidden;
 }
 
 .progressBar {
   height: 100%;
-  background: var(--ceri);
+  background: var(--oranye);
   transform-origin: left;
 }
 

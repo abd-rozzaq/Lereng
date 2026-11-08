@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--abu) 97%, transparent);
+  background: color-mix(in srgb, var(--krem) 97%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--abu-2);
+  border-bottom: 1px solid var(--garis);
 }
 
 .inner {
@@ -23,7 +23,7 @@
   line-height: 1;
   letter-spacing: -0.04em;
   text-decoration: none;
-  color: var(--terpal);
+  color: var(--espresso);
 }
 
 .nav ul {
@@ -40,13 +40,13 @@
   padding: 0.5rem 0.85rem;
   text-decoration: none;
   font-weight: 560;
-  color: color-mix(in srgb, var(--basalt) 75%, transparent);
+  color: color-mix(in srgb, var(--teks) 75%, transparent);
   transition: color 0.2s;
 }
 
 .link:hover,
 .link[aria-current="location"] {
-  color: var(--basalt);
+  color: var(--teks);
 }
 
 /* Penanda halaman aktif: meluncur ke menu yang dipilih */
@@ -57,7 +57,7 @@
   bottom: 0.2rem;
   height: 3px;
   border-radius: 2px;
-  background: var(--ceri);
+  background: var(--oranye);
 }
 
 .actions {
@@ -73,7 +73,7 @@
   gap: 0.5rem;
   min-height: 44px;
   padding: 0.4rem 0.9rem;
-  border: 1.5px solid var(--basalt);
+  border: 1.5px solid var(--teks);
   border-radius: 999px;
   background: transparent;
   font-weight: 600;
@@ -83,8 +83,8 @@
 
 .cartButton:hover,
 .menuButton:hover {
-  background: var(--basalt);
-  color: var(--abu);
+  background: var(--teks);
+  color: var(--krem);
 }
 
 .badge {
@@ -94,8 +94,8 @@
   height: 1.5rem;
   padding-inline: 0.35rem;
   border-radius: 999px;
-  background: var(--ceri);
-  color: var(--kertas);
+  background: var(--oranye);
+  color: var(--teks);
   font-size: 0.8rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;

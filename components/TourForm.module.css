@@ -25,7 +25,7 @@
   border: 1.5px solid transparent;
   border-radius: 6px;
   background: var(--kertas);
-  color: var(--basalt);
+  color: var(--teks);
   font: inherit;
   font-size: max(16px, 1rem); /* 16px mencegah iPhone otomatis zoom saat input diketuk */
 }
@@ -36,8 +36,8 @@
 }
 
 .field input[aria-invalid="true"] {
-  border-color: var(--ceri);
-  box-shadow: 0 0 0 2px var(--ceri);
+  border-color: var(--oranye);
+  box-shadow: 0 0 0 2px var(--oranye);
 }
 
 .error {
@@ -46,7 +46,7 @@
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   background: var(--kertas);
-  color: var(--ceri-deep);
+  color: var(--oranye-deep);
   font-size: var(--step--1);
   font-weight: 600;
 }
@@ -58,8 +58,8 @@
   padding: 0.6rem 1.5rem;
   border: 0;
   border-radius: 6px;
-  background: var(--ceri);
-  color: var(--kertas);
+  background: var(--oranye);
+  color: var(--teks);
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -67,7 +67,7 @@
 
 .submit:hover,
 .again:hover {
-  background: var(--ceri-deep);
+  background: var(--kertas);
 }
 
 .submit:focus-visible,

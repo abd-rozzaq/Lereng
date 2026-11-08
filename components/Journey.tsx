@@ -18,14 +18,14 @@ const STEPS: Step[] = [
     title: "Petik yang merah saja",
     day: "Hari 1",
     text: "Petani memetik ceri yang sudah merah penuh. Kebun yang sama didatangi tiga sampai empat kali dalam satu musim, karena ceri tidak matang bersamaan.",
-    color: "#c8102e",
+    color: "#c0392b",
     shape: "ceri",
   },
   {
     title: "Rendam dan sortir",
     day: "Hari 1",
     text: "Ceri dimasukkan ke bak air. Yang mengapung biasanya kosong atau dimakan hama, jadi dipisahkan.",
-    color: "#a3162b",
+    color: "#a32a1e",
     shape: "ceri",
   },
   {

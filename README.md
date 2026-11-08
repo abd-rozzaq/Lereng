@@ -83,5 +83,16 @@ Data kopi ada di `lib/beans.ts`. Menambah atau mengubah kopi cukup dilakukan di 
 
 ## Desain
 
-- **Warna:** biru terpal `#2347A0` (terpal jemuran kopi), merah ceri `#C8102E`, abu vulkanik `#E3E4E0`, basalt `#1F2326`.
+- **Warna** (semua token ada di `app/globals.css`):
+
+  | Token | Warna | Dipakai untuk |
+  | --- | --- | --- |
+  | `--krem` | `#F3EEE7` | Latar halaman |
+  | `--persik` | `#FFD5BD` | Terpal jemuran di hero |
+  | `--oranye` | `#D7692A` | Judul bagian, penanda menu, progres, label, titik ketinggian |
+  | `--oranye-deep` | `#A84E1C` | Teks oranye kecil, outline fokus |
+  | `--espresso` | `#2B1A12` | Tombol utama, pita Cerita, menu HP, formulir tur |
+  | `--teks` | `#24140C` | Teks utama |
+
+- **Kontras (WCAG AA):** di atas oranye, teks selalu gelap (5.0 : 1), karena teks putih di atas oranye hanya 3.4 : 1. Teks oranye berukuran kecil memakai `--oranye-deep` (4.8 : 1). Oranye biasa hanya dipakai untuk teks besar (judul bagian) dan elemen non-teks.
 - **Prinsip:** hanya satu momen besar di setiap bagian. Animasi lain hanya muncul sebagai respons atas tindakan pengunjung.

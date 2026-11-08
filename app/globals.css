@@ -1,14 +1,18 @@
 :root {
-  /* Warna dari dunia jemuran kopi Dampit */
-  --terpal: #2347a0;      /* terpal biru tempat ceri dijemur */
-  --terpal-deep: #17306f;
-  --ceri: #c8102e;        /* ceri kopi yang matang */
-  --ceri-deep: #9c0c24;
-  --abu: #e3e4e0;         /* abu vulkanik Semeru */
-  --abu-2: #d2d4ce;
-  --basalt: #1f2326;
-  --kertas: #f4f5f2;      /* teks terang di atas biru dan merah */
-  --kulit: #d9c58f;       /* kulit tanduk biji kering */
+  /* Palet hangat: krem, persik, oranye sangrai, dan coklat espresso.
+     Aturan kontras (WCAG AA):
+     - di atas --oranye, teks selalu --teks (5.0:1), bukan putih (3.4:1)
+     - teks berwarna oranye di latar terang memakai --oranye-deep (4.8:1) */
+  --krem: #f3eee7;          /* latar halaman */
+  --permukaan: #fffbf7;     /* kartu, kolom isian */
+  --persik: #ffd5bd;        /* bidang hangat: terpal, lembaran pembuka */
+  --garis: #e4d8ca;         /* garis tipis pemisah */
+  --oranye: #d7692a;        /* aksen: penanda, progres, label */
+  --oranye-deep: #a84e1c;   /* teks oranye, outline fokus */
+  --espresso: #2b1a12;      /* bidang gelap, tombol utama */
+  --espresso-deep: #1e120c;
+  --teks: #24140c;
+  --kertas: #fffbf7;        /* teks terang di atas espresso */
 
   /* Dua font dari Google Fonts, disimpan di proyek lewat Fontsource */
   --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;   /* teks dan antarmuka */
@@ -42,8 +46,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--abu);
-  color: var(--basalt);
+  background: var(--krem);
+  color: var(--teks);
   font-family: var(--font-sans);
   font-size: var(--step-0);
   line-height: 1.55;
@@ -90,13 +94,13 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--ceri);
+  outline: 3px solid var(--oranye-deep);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 ::selection {
-  background: var(--terpal);
+  background: var(--espresso);
   color: var(--kertas);
 }
 
@@ -123,7 +127,7 @@ button {
   top: -4rem;
   z-index: 100;
   padding: 0.6rem 1rem;
-  background: var(--basalt);
+  background: var(--teks);
   color: var(--kertas);
   border-radius: 6px;
   text-decoration: none;

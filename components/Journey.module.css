@@ -47,11 +47,11 @@
 }
 
 .track::before {
-  background: var(--abu-2);
+  background: var(--garis);
 }
 
 .progress {
-  background: var(--ceri);
+  background: var(--oranye);
   transform-origin: top;
 }
 
@@ -84,7 +84,7 @@
   font-size: 2rem;
   font-weight: 600;
   line-height: 0.9;
-  color: var(--terpal);
+  color: var(--espresso);
 }
 
 .stepTitle {
@@ -99,7 +99,7 @@
 .stepDay {
   margin-top: 0.6rem;
   font-weight: 700;
-  color: var(--ceri);
+  color: var(--oranye-deep);
 }
 
 .stepText {
@@ -123,8 +123,8 @@
     z-index: 5;
     margin-inline: calc(-1 * var(--gutter));
     padding-inline: var(--gutter);
-    background: var(--abu);
-    border-bottom: 1px solid var(--abu-2);
+    background: var(--krem);
+    border-bottom: 1px solid var(--garis);
   }
 
   :global(html[data-header-hidden]) .stage {

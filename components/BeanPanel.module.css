@@ -5,8 +5,8 @@
   width: clamp(18.5rem, 28vw, 25rem);
   height: 100%;
   padding: 1.5rem 1.75rem 1.75rem;
-  border-left: 1.5px solid var(--basalt);
-  background: var(--abu);
+  border-left: 1.5px solid var(--teks);
+  background: var(--krem);
 }
 
 .week {
@@ -15,8 +15,8 @@
   margin-bottom: 1rem;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: var(--ceri);
-  color: var(--kertas);
+  background: var(--oranye);
+  color: var(--teks);
   font-size: var(--step--1);
   font-weight: 700;
 }
@@ -62,12 +62,12 @@
 }
 
 .slopeFill {
-  fill: var(--abu-2);
+  fill: var(--garis);
 }
 
 .slopeLine {
   fill: none;
-  stroke: var(--basalt);
+  stroke: var(--teks);
   stroke-width: 1.5;
   vector-effect: non-scaling-stroke;
 }
@@ -77,8 +77,8 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--ceri);
-  box-shadow: 0 0 0 4px var(--abu);
+  background: var(--oranye);
+  box-shadow: 0 0 0 4px var(--krem);
   transform: translate(-50%, -50%);
 }
 
@@ -91,7 +91,7 @@
   display: grid;
   gap: 0.4rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--abu-2);
+  border-top: 1px solid var(--garis);
 }
 
 .process {
@@ -137,19 +137,17 @@
   overflow: hidden;
   border: 0;
   border-radius: 6px;
-  background: var(--ceri);
+  background: var(--espresso);
   color: var(--kertas);
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.add:hover {
-  background: var(--ceri-deep);
-}
-
+.add:hover,
 .add[data-added] {
-  background: var(--terpal);
+  background: var(--oranye);
+  color: var(--teks);
 }
 
 @media (max-width: 600px) {

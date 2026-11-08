@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./TarpCanvas.module.css";
 
 /**
- * Terpal biru dengan ceri kopi yang sedang dijemur.
+ * Terpal dengan ceri kopi yang sedang dijemur.
  * Pengunjung bisa "meratakan jemuran" dengan menggerakkan kursor atau mengusap layar,
  * seperti petani Dampit meratakan ceri dengan garuk kayu.
  *
@@ -20,9 +20,9 @@ type Bean = {
   delay: number; // untuk animasi "dituang" saat pertama muncul
 };
 
-// Ceri dari merah segar sampai merah anggur yang hampir kering
-const COLORS = ["#c8102e", "#a3162b", "#86132a", "#6a1424", "#4f1620"];
-const TARP = "#2347a0";
+// Ceri dari merah bata segar sampai coklat tua yang hampir kering
+const COLORS = ["#c0392b", "#a32a1e", "#86251c", "#6a2018", "#4f1a12"];
+const TARP = "#ffd5bd"; // terpal persik
 const POUR_MS = 1100;
 
 // Angka acak dengan seed, supaya susunan ceri sama setiap kali halaman dibuka
@@ -74,7 +74,7 @@ export default function TarpCanvas() {
       t.fillRect(0, 0, width, height);
 
       // Anyaman terpal
-      t.strokeStyle = "rgba(255,255,255,0.045)";
+      t.strokeStyle = "rgba(43,26,18,0.05)";
       t.lineWidth = 1;
       t.beginPath();
       for (let x = 0; x < width; x += 5) {
@@ -88,7 +88,7 @@ export default function TarpCanvas() {
       t.stroke();
 
       // Lipatan tepi dan lubang tali (mata ayam) di sepanjang pinggir terpal
-      t.strokeStyle = "rgba(0,0,0,0.18)";
+      t.strokeStyle = "rgba(43,26,18,0.16)";
       t.lineWidth = 2;
       t.strokeRect(10, 10, width - 20, height - 20);
       const spacing = width < 600 ? 64 : 88;
@@ -96,11 +96,11 @@ export default function TarpCanvas() {
         for (const y of [22, height - 22]) {
           t.beginPath();
           t.arc(x, y, 5.5, 0, Math.PI * 2);
-          t.fillStyle = "#c3c9d2";
+          t.fillStyle = "#b8aa9c";
           t.fill();
           t.beginPath();
           t.arc(x, y, 2.8, 0, Math.PI * 2);
-          t.fillStyle = "#14254f";
+          t.fillStyle = "#2b1a12";
           t.fill();
         }
       }
@@ -145,7 +145,7 @@ export default function TarpCanvas() {
       const progressOf = (bean: Bean) => (pouring ? Math.min(1, Math.max(0, (elapsed - bean.delay) / 420)) : 1);
 
       // Bayangan
-      ctx!.fillStyle = "rgba(10,20,50,0.35)";
+      ctx!.fillStyle = "rgba(43,26,18,0.28)";
       ctx!.beginPath();
       for (const bean of beans) {
         const p = progressOf(bean);
@@ -290,7 +290,7 @@ export default function TarpCanvas() {
         ref={canvasRef}
         className={styles.canvas}
         role="img"
-        aria-label="Ceri kopi merah dijemur di atas terpal biru"
+        aria-label="Ceri kopi merah dijemur di atas terpal"
       />
       <div className={styles.bar}>
         <p className={styles.hint}>

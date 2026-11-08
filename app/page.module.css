@@ -7,11 +7,11 @@
 }
 
 .sectionTitle {
-  color: var(--terpal);
+  color: var(--oranye); /* teks besar: kontras ≥ 3:1 */
 }
 
 .sectionTitleLight {
-  color: var(--kertas);
+  color: var(--oranye); /* di atas espresso: kontras 4.7:1 */
 }
 
 .lead {
@@ -22,7 +22,7 @@
 
 .band {
   padding-block: clamp(4rem, 10vw, 7.5rem);
-  background: var(--terpal);
+  background: var(--espresso);
   color: var(--kertas);
 }
 
@@ -55,7 +55,7 @@
   align-items: start;
   margin-top: clamp(3rem, 8vw, 6rem);
   padding-top: clamp(2.5rem, 6vw, 4rem);
-  border-top: 1.5px solid var(--basalt);
+  border-top: 1.5px solid var(--teks);
 }
 
 .farmersTitle {
@@ -119,7 +119,7 @@
 
 .hours {
   margin: 0;
-  border-top: 1.5px solid var(--basalt);
+  border-top: 1.5px solid var(--teks);
 }
 
 .hoursRow {
@@ -127,7 +127,7 @@
   grid-template-columns: 9.5rem 1fr;
   gap: 1rem;
   padding-block: 0.7rem;
-  border-bottom: 1px solid var(--abu-2);
+  border-bottom: 1px solid var(--garis);
 }
 
 .hoursRow dt {
@@ -140,7 +140,7 @@
 
 .tour {
   padding: clamp(1.5rem, 4vw, 2.5rem);
-  background: var(--terpal);
+  background: var(--espresso);
   color: var(--kertas);
   border-radius: 10px;
 }

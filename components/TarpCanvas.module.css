@@ -1,7 +1,7 @@
 .wrap {
   position: relative;
   height: clamp(320px, 62svh, 640px);
-  background: var(--terpal);
+  background: var(--persik);
   overflow: hidden;
 }
 
@@ -31,7 +31,7 @@
   font-size: var(--step--1);
   font-weight: 560;
   padding: 0.35rem 0.7rem;
-  background: rgb(23 48 111 / 0.85);
+  background: rgb(43 26 18 / 0.85);
   border-radius: 4px;
 }
 
@@ -41,7 +41,7 @@
   padding: 0.4rem 1rem;
   border: 1.5px solid var(--kertas);
   border-radius: 999px;
-  background: rgb(23 48 111 / 0.85);
+  background: rgb(43 26 18 / 0.85);
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
@@ -49,7 +49,7 @@
 
 .reset:hover {
   background: var(--kertas);
-  color: var(--terpal-deep);
+  color: var(--espresso-deep);
 }
 
 .reset:focus-visible {
